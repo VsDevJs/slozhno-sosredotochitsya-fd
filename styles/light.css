@@ -3,7 +3,7 @@
   --title-decor:#FF8DCB;
   --accent-color:#353430;
   --content-color-text:#353430;
-  --color-pattern:#353430; 
+  --color-pattern:#353430;
   --h1-color-text:#FFC2E6;
   --bg-page: url('../images/cover-image-light.png') no-repeat center / cover fixed;
   --text-shadow:#FF8DCB;
@@ -27,7 +27,7 @@
   --title-decor:#FF8DCB;
   --accent-color:#353430;
   --content-color-text:#353430;
-  --color-pattern:#353430; 
+  --color-pattern:#353430;
   --h1-color-text:#FFC2E6;
   --bg-page: url('../images/cover-image-light.png') no-repeat center / cover fixed;
   --text-shadow:#FF8DCB;
@@ -41,9 +41,9 @@
     border-bottom: 1px solid rgba(53, 52, 48, 1);
   }
 
-  .info-block-link:focus { 
-    outline: 1px solid currentColor;
+  .info-block-link:focus {
     appearance: none;
+    outline: 1px solid currentColor;
   }
 
   .rec-card {
