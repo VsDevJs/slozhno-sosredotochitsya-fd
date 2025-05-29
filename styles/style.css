@@ -1,12 +1,12 @@
 /* ____________Общие с тили____________ */
 
 .title-decor {
-  background:var(--title-decor);
+  background:var(--title-decor,#FF0070);
 }
 
 .block-title {
-  font-family: var( --main-font);
-  font-size:var(--text-font-size);
+  font-family: var(--main-font, monospace);
+  font-size:var(--text-font-size, 18px, 18px);
   color:var(--accent-color);
   /* margin-block-start: 10px; */
   margin-block-start: 0;
@@ -20,37 +20,47 @@
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 0px #FF0070;
+  text-shadow: 2px 2px 0px var(--text-shadow, #FF0070);
 }
 
-.text-shadow:hover { 
-  text-decoration: underline;
+.text-shadow:hover {
+  text-decoration: none; 
+  /* text-decoration: underline;
   text-underline-offset: 1px;
 
   /* __Нужна ли другая переменная ?__ */
-  text-decoration-color:var(--title-decor);
+  /* text-decoration-color:var(--title-decor); */
 }
 
-.text-shadow:focus { 
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-normal);
+.text-shadow:focus {
+  /* font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-normal,400);
   font-size: 25px;
   line-height: 1.28;
-  color: #F1B2CE;
+  color: #F1B2CE; */
 }
 
-.info-block-link { 
+.info-block-link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.info-block:active {
 
 }
+
+.info-block-link:visited {
+
+}
+
+.info-block-link:focus {
+  appearance: none; 
+  outline: 1px solid currentColor;
+}
+
 
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  padding:10px;
-  background-image: url('../images/cover-image-dark.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background: var(--bg-page);
   margin:0;
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
@@ -64,7 +74,9 @@
   grid-template-rows: 1fr min-content 1fr;
   /* padding-block-end: 8%; */
   height:100vh;
-  min-height:658px;
+  min-height:668px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
 }
 
 .decorated-zone {
@@ -77,13 +89,13 @@
   content:'';
   box-sizing: border-box;
   position: absolute;
-  inset-block-start: 0px;
-  inset-inline-end:0px;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
   width: 25.04px;
   height: 25px;
   border-width: 1px 1px 0px 0px;
   border-style: solid;
-  border-color: var(--title-decor);
+  border-color: var(--color-pattern,#FF0070);
 }
 /* декоративные  границы */
 
@@ -91,27 +103,27 @@
   content:'';
   box-sizing: border-box;
   position: absolute;
-  inset-block-end:0px;
-  inset-inline-start:0px;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
   width: 25.04px;
   height: 25px;
   border-width: 0px 0px 1px 1px;
   border-style: solid;
-  border-color: var(--title-decor);
+  border-color: var(--color-pattern,#FF0070);
 }
 
 /* ___декоративный REC___ */
 
 .rec-card {
   position: absolute;
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-normal);
+  font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-normal,400);
   font-size: 18px;
   line-height: 1.39;
   text-align: center;
-  color: var(--title-decor);
-  inset-block-start: 0;
-  inset-inline-end: 28px;
+  color: var(--color-pattern,#FF0070);
+  inset-block-start: 11px;
+  inset-inline-end: 38px;
 }
 
 .rec-card::after {
@@ -120,8 +132,8 @@
   position: absolute;
   width: 9px;
   height: 9px;
-  background: var(--title-decor);
-  box-shadow: 0px 0px 4px 2px var(--title-decor);
+  background: var(--title-decor, #FF0070);
+  box-shadow: 0px 0px 4px 2px var(--title-decor, #FF0070);
   inset-block-start: 8px;
   inset-inline-end: -19px;
 }
@@ -129,7 +141,7 @@
 .header__theme-menu {
   justify-items: end;
   /* margin-block-start: 18.4%; */
-  margin-block-start: 64px; 
+  margin-block-start: 73px;
 }
 
 .header__theme-menu-list {
@@ -151,18 +163,30 @@
   background: transparent;
   font-family: 'IBM Plex Mono', monospace;
   text-transform: lowercase;
-  font-weight: var(--font-weight-normal, 400);
+  font-weight: var(--font-weight-normal,400, 400);
   font-size: 18px;
   line-height: 1;
   text-align: center;
-  color: var(--color-pattern);
+  color: var(--color-pattern,#FF0070);
   border: 1px solid transparent;
   padding-block: 3px;
   padding-inline: 13px;
 }
 
-/* день */
+.header__theme-menu-button:hover {
+  border: 1px solid rgba(255, 0, 112, 0.5);
+}
 
+.header__theme-menu-button:focus {
+  appearance: none;
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid rgba(255, 0, 112, 1);
+}
+
+/* день */
 
 
 .header__theme-menu-button_type_light {
@@ -170,8 +194,10 @@
 }
 
 .header__theme-menu-button_active {
+  pointer-events: none;
   border: 1px solid currentColor;
 }
+
 
 .header__theme-menu-button_type_auto {
 
@@ -183,36 +209,36 @@
 
 /* Заголовок h1 */
 
-.header__title { 
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-bold);
+.header__title {
+  font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-bold,700);
   font-size:clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 82.5%;
   /* margin-block-end: 37px;
   margin-block-start: 68px;  */
   margin-block-end: 28px;
-  margin-block-start: 19px;
+  margin-block-start: 29px;
   /* margin-block-start:18.63%;
   margin-block-end: 10.8%; */
-  color: #DB00FF;
-  text-shadow: 4px 4px 0 var(--text-shadow);
+  color: var(--h1-color-text,#DB00FF);
+  text-shadow: 4px 4px 0 var(--text-shadow, #FF0070);
 }
 
 /* возможно вывести в заголовок, просто h2 вынести в общие стили а в этом перебить */
 
 .header__description-text {
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-bold);
-  font-size:var(--text-font-size);
+  font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-bold,700);
+  font-size:var(--text-font-size, 18px);
   line-height: 23.4px;
-  color:var(--text-color);
+  color:var(--accent-color);
   min-width:355px;
   max-width: 50%;
-  margin-block-end: 76px;
+  margin-block-end: 66px;
   /* margin-block-end: 7.8%; */
   /* margin-block-end:27px; */
   justify-self:end;
-  margin-block-start: 18px;
+  margin-block-start: 27px
   /* margin-bottom уменьшается элемент */
 }
 
@@ -220,7 +246,13 @@
 
 .info-block {
   display: grid;
-  margin-block-start:30px;
+  margin-block-start: 50px;
+  padding-inline-end: 10px;
+  padding-inline-start: 10px;
+}
+
+.info-block:first-child {
+  margin-block-start: 40px;
 }
 
 /* _отсюда вынес блок h2 */
@@ -230,51 +262,49 @@
 }
 
 .info-block__title {
-  font-family: var( --main-font);
-  font-size:var(--text-font-size);
+  font-family: var( --main-font, monospace);
+  font-size:var(--text-font-size, 18px);
   line-height: 23.4px;
-  color:var(--color-pattern);
+  color:var(--color-pattern,#FF0070);
   /* margin-block-start: 14%; */
   margin-block-start: 0;
   margin-block-end: 0;
 }
 
-.info-block__title-light { 
-  font-weight: var(--font-weight-normal);
+.info-block__title-light {
+  font-weight: var(--font-weight-normal,400);
 }
 
 .info-block__text {
-  font-family: var( --main-font);
-  font-size:var(--text-font-size);
-  line-height: 1.3;
+  font-family: var( --main-font, monospace);
+  font-size:var(--text-font-size, 18px);
+  line-height: 130%;
   margin-block-start: 10px;
   margin-block-end: 0px;
   color:var(--content-color-text);
 }
 
-.info-block-link {
-
-}
-
 .info-block__subject {
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--text-font-size);
+  font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-bold,700);
+  font-size: var(--text-font-size, 18px);
   line-height: 1.3;
   color: var(--accent-color);
-  margin-block-start: 21px;
+  margin-block-start: 25px;
   margin-block-end: 0px;
 }
 
 /* _____ Секция Галерея_____ */
 
-.section-galerry { 
+.section-galerry {
   display: grid;
-  margin-top:50px;
+  margin-block-start:50px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
   gap:10px;
 }
 
-.section-gallery__image { 
+.section-gallery__image {
   width:100%;
 }
 
@@ -282,51 +312,66 @@
 
 .footer {
   display: grid;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
   grid-template-columns: 1fr;
-  grid-template-rows: 648px;
-  margin-block-start: 51px;
+  margin-block-start: 40px;
   height:100vh;
-  min-height:657px;
+  min-height: 668px;
 }
 
 .footer__text {
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--text-font-size);
+  font-family: var(--main-font, monospace);
+  font-weight: var(--font-weight-bold,700);
+  font-size: var(--text-font-size, 18px);
   font-size:clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  /* padding:286px 3px 286px 4px; */
   margin:auto;
   line-height: 82.5%;
-  color: #DB00FF;
-  text-shadow: 3px 2px 0px #FF0070;
+  color: var(--h1-color-text,#DB00FF);
+  text-shadow: 3px 2px 0px var(--text-shadow, #FF0070);
 }
 
 
 /* ___media для header___ */
 
 @media (width >= 768px) {
-  .header { 
-    padding-block-end: 4%;
+  .header {
+    height:100vh;
+    min-height: 1024px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+  }
+  .decorated-zone::after {
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+  }
+
+  .decorated-zone::before {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .rec-card {
+    inset-block-start: 20px;
+    inset-inline-end: 48px;
   }
 
   .header__theme-menu {
     justify-items: end;
-    margin-block-start: 23.6%;
+    margin-block-start: 190px;
   /* margin-block-start: 175; */
 }
-  .header__theme-menu-list { 
+  .header__theme-menu-list {
     gap:10px;
   }
 
-  .header__title { 
+  .header__title {
     margin-inline-start: -20px;
-    /* margin-block-start: 24.2%;
-    margin-block-end: 19.8%; */
-    margin-block-start:174.5px;
-    margin-block-end:142.5px;
+    margin-block-start: 145.5px;
+    margin-block-end: 134px;
   }
-  .header__description-text { 
-    margin-block-end: 135px;
+  .header__description-text {
+    margin-block-end: 183px;
   }
 
   .info-block {
@@ -334,74 +379,154 @@
     grid-template-rows: auto auto;
     gap: 20px;
     margin-block-start:80px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
   }
-  .info-block__title { 
+
+  .info-block:first-child {
+    margin-block-start: 60px;
+  }
+
+/* Грид колонка для h2 в section 1 */
+
+  .info-block__title {
     grid-row: 1 / -1;
   }
+
   .info-block__contain {
     margin-block-start: 0px;
   }
 
-  .info-block__mod { 
+  /* Меняем grid для section 2 */
+
+  .info-block__mod {
     grid-template-columns: 1fr;
-
-    /* grid-template-areas: 
-    'title . .'
-    'contain contain contain'
-    'contain contain contain'
-    'contain contain contain'
-    ;
   }
-  .info-title__mod { 
-    grid-area: title;
-  }
-  .info-contain__mod { 
-    grid-area: contain;
-  } */
-}
 
-.info-title__mod {
-  width:min-content;
-  max-width: 220px;
-}
-.info-block__subject_mod { 
-  margin-block-start: 0px
-}
+  /* h2 второй секции */
+
+  .info-title__mod {
+    width:min-content;
+    max-width: 220px;
+  }
+
+   /* Грид колонка для h2 в section 3 */
+
+  .info-block__subject_mod {
+    margin-block-start: 0px
+  }
+
+  .info-block__title-mod {
+    grid-row:1/7;
+  }
+
+  /* section gallery */
+  .section-galerry {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+    margin-block-start: 80px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+  }
+
+  /* Стилизация галереи */
+
+  .section-gallery__image {
+    width: 100%;    
+    object-fit: cover;
+  }
+
+  .section-galerry-image_mod-title {
+    grid-column: 1/4;
+  }
+
+  .section-gallery__image_left-top {
+    grid-column: 1 / 3;
+  }
+
+  .section-gallery__image_right {
+    grid-column: 3;
+    grid-row: 2 / 4;
+    height: 100%;
+  }
+
+  .section-gallery__image_center {
+    
+  }
+
+  .section-gallery__image_left_left-center-bottom {
+    height: 100%;
+    grid-row: 3 / 5;
+  }
+
+  .section-gallery__image_left_right-bottom {
+    grid-column: 2 / 4;
+  }
+
+  .footer {
+    min-height: 1024px;
+    margin-block-start: 62px;
+  }
+
+  .footer__text {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
 }
 
 /* ___Desktop media___ */
 
 @media (width >= 1024px) {
-  .header { 
-    grid-template-rows: 1fr min-content auto;
-  }
-  .page { 
-    padding:20px;
+  .header {
+    padding-block-start: 20px;
+    min-height: 768px;
   }
   .header__theme-menu {
     justify-self: center;
     margin-block-start: 0;
-    margin-bottom: 243px;
   }
   .header__theme-menu-list {
     padding:0;
     flex-direction: row;
   }
 
-  .header__title { 
+  .header__title {
     font-family: 'IBM Plex Mono';
-    margin-block-start: 3.2%;
-    margin-block-end: 9.8%;
+    margin-block-start: 0px;
+    margin-block-end: 20px;
     font-style: normal;
     font-weight: 700;
     font-size: 157px;
     line-height: 82.5%;
-    color: #DB00FF;
-    text-shadow: 4px 4px 0px #FF0070;
   }
 
-  .header__description-text { 
-        margin-block-end: 7.8%;
+  .header__description-text {
+    margin-block-start: 95px;
+    margin-block-end: 154px;
   }
 
+  .info-block:first-child {
+    margin-block-start: 40px;
+  }
+  
+  .info-block__mod {
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .info-block:not(.info-block__mod) {
+    column-gap: 12px;
+  }
+
+  .info-title__mod {
+    max-width: 260px;
+    width:auto;
+    grid-column: 1/-1;
+  }
+
+  .footer {
+    min-height: 768px;
+  }
+
+  .footer__text {
+    font-size:clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
 }
