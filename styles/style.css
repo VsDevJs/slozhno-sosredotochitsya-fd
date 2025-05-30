@@ -244,7 +244,7 @@
 
 /*  Чтобы 1 и 3 секциях блоки не занимали только вторую колонку  */
 
-.info-block.info-block__mod .info-block__contain { 
+.info-block.info-block__mod .info-block__contain {
   grid-column: auto;
 }
 
