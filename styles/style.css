@@ -198,7 +198,7 @@
 .header__title {
   font-family: var(--main-font, monospace);
   font-weight: var(--font-weight-bold, 700);
-  font-size: var(--font-size-mobile, clamp(1.875rem, 1.6607rem + 0.9524vw, 2.375rem));
+  font-size: var(--font-size-mobile, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   line-height: 82.5%;
   margin-block-end: 28px;
   margin-block-start: 29px;
@@ -235,10 +235,10 @@
   margin-block-start: 40px;
 }
 
+
 /* _отсюда вынес блок h2 */
 
 .info-block__contain {
-  grid-column: 2;
   margin-block-start: 20px;
 }
 
@@ -267,7 +267,7 @@
   line-height: 130%;
   margin-block-start: 10px;
   margin-block-end: 0px;
-  color: var(--content-color-text);
+  color: var(--content-color-text, #F1B2CE);
 }
 
 /* _____ Секция Галерея_____ */
@@ -350,6 +350,7 @@
   }
 
   .header__title {
+    font-size: var(--font-size-desktop, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
     margin-inline-start: -20px;
     margin-block-start: 145.5px;
     margin-block-end: 134px;
@@ -378,6 +379,7 @@
   }
 
   .info-block__contain {
+    grid-column: 2;
     margin-block-start: 0px;
   }
 
@@ -473,7 +475,6 @@
   .header__title {
     margin-block-start: 0px;
     margin-block-end: 9px;
-    font-size: var(--font-size-desktop, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
     line-height: 82.5%;
   }
 
