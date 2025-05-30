@@ -12,6 +12,14 @@
   margin-block-end: 0px;
 }
 
+/* Модификатор заголовка в 3-й секции */
+
+.info-block__title--spaced {
+  font-weight: var(--font-weight-bold, 700);
+  line-height: 130%;
+  margin-block-start: 20px;
+}
+
 /* __Ссылка__ */
 
 .info-block-link {
@@ -32,6 +40,11 @@
 }
 
 .info-block-link:focus {
+  appearance: none;
+  outline: 1px solid currentColor;
+}
+
+.theme-dark .info-block-link:focus {
   appearance: none;
   outline: 1px solid currentColor;
 }
@@ -140,9 +153,18 @@
   border: 1px solid transparent;
   padding-block: 3px;
   padding-inline: 13px;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
+  border: 1px solid rgba(255, 0, 112, 0.5);
+}
+
+.theme-light .header__theme-menu-button:hover {
+  border: 1px solid rgba(53, 52, 48, 0.4);
+}
+
+.theme-dark .header__theme-menu-button:hover {
   border: 1px solid rgba(255, 0, 112, 0.5);
 }
 
@@ -154,6 +176,15 @@
 .header__theme-menu-button:focus-visible {
   border-bottom: 1px solid rgba(255, 0, 112, 1);
 }
+
+.theme-light .header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid rgba(53, 52, 48, 1);
+}
+
+.theme-dark .header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid rgba(255, 0, 112, 1);
+}
+
 
 /* день */
 
@@ -167,11 +198,11 @@
 .header__title {
   font-family: var(--main-font, monospace);
   font-weight: var(--font-weight-bold, 700);
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: var(--font-size-mobile, clamp(1.875rem, 1.6607rem + 0.9524vw, 2.375rem));
   line-height: 82.5%;
   margin-block-end: 28px;
   margin-block-start: 29px;
-  color: var(--h1-color-text, #DB00FF);
+  color: var(--title-color-text, #DB00FF);
   text-shadow: 4px 4px 0 var(--text-shadow, #FF0070);
 }
 
@@ -187,6 +218,7 @@
   max-width: 50%;
   margin-block-end: 66px;
   justify-self: end;
+  align-self: center;
   margin-block-start: 27px
 }
 
@@ -206,7 +238,14 @@
 /* _отсюда вынес блок h2 */
 
 .info-block__contain {
+  grid-column: 2;
   margin-block-start: 20px;
+}
+
+/*  Чтобы 1 и 3 секциях блоки не занимали только вторую колонку  */
+
+.info-block.info-block__mod .info-block__contain { 
+  grid-column: auto;
 }
 
 .info-block__title {
@@ -229,16 +268,6 @@
   margin-block-start: 10px;
   margin-block-end: 0px;
   color: var(--content-color-text);
-}
-
-.info-block__subject {
-  font-family: var(--main-font, monospace);
-  font-weight: var(--font-weight-bold, 700);
-  font-size: var(--text-font-size, 18px);
-  line-height: 1.3;
-  color: var(--accent-color, #000028);
-  margin-block-start: 20px;
-  margin-block-end: 0px;
 }
 
 /* _____ Секция Галерея_____ */
@@ -273,7 +302,7 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   margin: auto;
   line-height: 82.5%;
-  color: var(--h1-color-text, #DB00FF);
+  color: var(--title-color-text, #DB00FF);
   text-shadow: 3px 2px 0px var(--text-shadow, #FF0070);
 }
 
@@ -282,7 +311,6 @@
 
 @media (width >=768px) {
   .header {
-    height: 100vh;
     min-height: 1024px;
     padding-inline-start: 20px;
     padding-inline-end: 20px;
@@ -302,9 +330,18 @@
     inset-block-start: 20px;
     inset-inline-end: 48px;
   }
+  
+  .theme-light .rec-card {
+    display: none;
+  }
+
+  /* Для отображения в тёмной теме т.к по умолчанию белая (авто), скрывает блок */
+
+  .theme-dark .rec-card {
+    display: block;
+  }
 
   .header__theme-menu {
-    justify-items: end;
     margin-block-start: 190px;
   }
 
@@ -324,7 +361,6 @@
 
   .info-block {
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto;
     gap: 20px;
     margin-block-start: 80px;
     padding-inline-start: 20px;
@@ -360,7 +396,7 @@
 
   /* Грид колонка для h2 в section 3 */
 
-  .info-block__subject_mod {
+  .info-block__title--spaced {
     margin-block-start: 0px
   }
 
@@ -381,6 +417,7 @@
 
   .section-gallery__image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -395,11 +432,9 @@
   .section-gallery__image_right {
     grid-column: 3;
     grid-row: 2 / 4;
-    height: 100%;
   }
 
   .section-gallery__image_left_left-center-bottom {
-    height: 100%;
     grid-row: 3 / 5;
   }
 
@@ -436,12 +471,9 @@
   }
 
   .header__title {
-    font-family: 'IBM Plex Mono';
     margin-block-start: 0px;
     margin-block-end: 9px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 157px;
+    font-size: var(--font-size-desktop, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
     line-height: 82.5%;
   }
 
@@ -470,9 +502,5 @@
 
   .footer {
     min-height: 768px;
-  }
-
-  .footer__text {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }

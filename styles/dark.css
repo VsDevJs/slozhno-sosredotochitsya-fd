@@ -1,30 +1,9 @@
 :root.theme-dark {
-  --main-font: 'IBM Plex Mono';
-  --font-weight-bold: 700;
-  --font-weight-normal: 400;
-  --h2-font-size-mobile: clamp(1.875rem, 1.6607rem + 0.9524vw, 2.375rem);
-  --h2-font-size-desktop: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  --text-font-size: 18px;
   --bg-page: url('../images/cover-image-dark.png') no-repeat center / cover fixed;
   --title-decor: #FF0070;
   --accent-color: #000028;
   --color-pattern: #FF0070;
   --text-shadow: #FF0070;
   --content-color-text: #F1B2CE;
-  --h1-color-text: #DB00FF;
-}
-
-/* ___Спецефичность для того, чтобы при авто (dark) необходимые стили применялись для outline + border */
-
-.theme-dark .header__theme-menu-button:hover {
-  border: 1px solid rgba(255, 0, 112, 0.5);
-}
-
-.theme-dark .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid rgba(255, 0, 112, 1);
-}
-
-.theme-dark .info-block-link:focus {
-  appearance: none;
-  outline: 1px solid currentColor;
+  --title-color-text: #DB00FF;
 }
