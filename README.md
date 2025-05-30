@@ -1,1 +1,1 @@
-https://github.com/VsDevJs/slozhno-sosredotochitsya-fd#
+https://github.com/VsDevJs/slozhno-sosredotochitsya-fd.git
