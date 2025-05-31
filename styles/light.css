@@ -7,6 +7,8 @@
   --title-color-text:#FFC2E6;
   --bg-page: url('../images/cover-image-light.png') no-repeat center / cover fixed;
   --text-shadow:#FF8DCB;
+  --button-hover:rgba(53, 52, 48, 0.4);
+  --hideElement:none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -19,22 +21,7 @@
   --title-color-text:#FFC2E6;
   --bg-page: url('../images/cover-image-light.png') no-repeat center / cover fixed;
   --text-shadow:#FF8DCB;
-  }
-
-  .header__theme-menu-button:hover {
-    border: 1px solid rgba(53, 52, 48, 0.4);
-  }
-
-  .header__theme-menu-button:focus-visible {
-    border-bottom: 1px solid rgba(53, 52, 48, 1);
-  }
-
-  .info-block-link:focus {
-    appearance: none;
-    outline: 1px solid currentColor;
-  }
-
-  .rec-card {
-    display: none;
+  --button-hover:rgba(53, 52, 48, 0.4);
+  --hideElement:none;
   }
 }

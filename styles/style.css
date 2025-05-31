@@ -154,43 +154,32 @@
   padding-block: 3px;
   padding-inline: 13px;
   cursor: pointer;
+  appearance: none;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid rgba(255, 0, 112, 0.5);
+  outline: 1px solid var(--button-hover);
 }
 
-.theme-light .header__theme-menu-button:hover {
-  border: 1px solid rgba(53, 52, 48, 0.4);
-}
-
-.theme-dark .header__theme-menu-button:hover {
-  border: 1px solid rgba(255, 0, 112, 0.5);
-}
+/* Сначала убрал focus, т.к он также отрабатывает при клике */
 
 .header__theme-menu-button:focus {
-  appearance: none;
   outline: none;
 }
 
+/* Установил active чтобы при клике были границы, которые убрал focus */
+
+.header__theme-menu-button:active {
+  outline: 1px solid var(--button-hover);
+}
+
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid rgba(255, 0, 112, 1);
+  border-bottom: 1px solid currentColor;
 }
-
-.theme-light .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid rgba(53, 52, 48, 1);
-}
-
-.theme-dark .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid rgba(255, 0, 112, 1);
-}
-
-
-/* день */
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid currentColor;
+  outline: 1px solid currentColor;
 }
 
 /* Заголовок h1 */
@@ -306,7 +295,6 @@
   text-shadow: 3px 2px 0px var(--text-shadow, #FF0070);
 }
 
-
 /* ___media для header___ */
 
 @media (width >=768px) {
@@ -327,18 +315,9 @@
   }
 
   .rec-card {
+    display: var(--hideElement, block);
     inset-block-start: 20px;
     inset-inline-end: 48px;
-  }
-  
-  .theme-light .rec-card {
-    display: none;
-  }
-
-  /* Для отображения в тёмной теме т.к по умолчанию белая (авто), скрывает блок */
-
-  .theme-dark .rec-card {
-    display: block;
   }
 
   .header__theme-menu {

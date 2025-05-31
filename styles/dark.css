@@ -6,4 +6,7 @@
   --text-shadow: #FF0070;
   --content-color-text: #F1B2CE;
   --title-color-text: #DB00FF;
+  /* Необходима т.к при включении "неон" + темную тему в Preferences и потом обратно, оставляет переменную светлой темы */
+  --button-hover: rgba(255, 0, 112, 0.4);
+  --hideElement: block;
 }
